@@ -45,7 +45,7 @@ class UR5eGolfEnv(gym.Env):
         self._arm = Arm(
             xml_path= os.path.join(
                 os.path.dirname(__file__),
-                '../assets/robots/ur5e/ur5e.xml',
+                '../assets/robots/ur5e_golf/ur5e.xml',
             ),
             eef_site_name='eef_site',
             attachment_site_name='attachment_site'
@@ -55,6 +55,30 @@ class UR5eGolfEnv(gym.Env):
         self._arena.attach(
             self._arm.mjcf_model, pos=[0,0,0], quat=[0.7071068, 0, 0, -0.7071068]
         )
+
+        golf_ball_body = self._arena._mjcf_model.worldbody.add('body', 
+                                                               name="golf_ball_body", 
+                                                               pos=[0.5, 0.0, 0.049],
+                                                               euler=[0.0, 0.0, 0.0]
+                                                               ) 
+
+        golf_ball_body.add('joint', type='free')
+        golf_ball_body.add('geom', name='golf_ball',
+                                  type='sphere', 
+                                  pos=[0, 0, 0.049], 
+                                  size=[.024, .024, .024],
+                                  friction=[0.4, 0.005, 0.00001],
+                                  conaffinity=1,
+                                  rgba=[0.247, 0.772, 0.760, 1],
+                                  mass=1.2
+                                )
+
+        attachment_site = self._arm.mjcf_model.find("site", "attachment_site")
+        mjcf_golf_club = mjcf.from_file(os.path.join(
+           os.path.dirname(__file__),
+           '../assets/robots/ur5e_golf/golf_club.xml', 
+        ))
+        attachment_site.attach(mjcf_golf_club)
        
         # generate model
         self._physics = mjcf.Physics.from_mjcf_model(self._arena.mjcf_model)
@@ -141,7 +165,7 @@ class UR5eGolfEnv(gym.Env):
         """
         if self._render_mode == "rgb_array":
             return self._render_frame()
-
+            
     def _render_frame(self) -> None:
         """
         Renders the current frame and updates the viewer if the render mode is set to "human".

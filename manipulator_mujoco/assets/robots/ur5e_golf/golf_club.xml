@@ -1,0 +1,11 @@
+<mujoco>
+  <asset>
+    <texture type="skybox" builtin="gradient" rgb1="1 1 1" rgb2=".6 .8 1" width="256" height="256"/>
+  </asset>
+
+  <worldbody>
+    <body pos="0 0 0.15">
+      <geom type="cylinder" size="0.01 0.15" rgba="0 0 1 1"/>
+    </body>
+  </worldbody>
+</mujoco>
