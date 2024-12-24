@@ -124,6 +124,21 @@ self._physics.step()
 
 The OperationalSpaceController and Arm classes handle the details of tracking the mjcf element IDs, eliminating the need to specify joint names or actuator names. It should work seamlessly with any robot arm model, including various joint types, as long as the actuators are removed from the model since the controller automatically applies torques to each joint.
 
+## Dockerfile
+```
+docker build -t manipulator-mujoco:latest -f Dockerfile .
+
+docker container rm manipulator-mujoco --force
+docker run --name manipulator-mujoco -d --network=host --user $(id -u):$(id -g) \
+    --gpus all \
+    --cap-add=sys_ptrace --security-opt seccomp=unconfined \
+    -v "/etc/group:/etc/group:ro" -v "/etc/passwd:/etc/passwd:ro" -v /home:/home \
+    -v /tmp/.x11-unix:/tmp/.x11-unix -v /tmp:/tmp \
+    --env="DISPLAY=$DISPLAY" --env="XAUTHORITY=$XAUTHORITY" --env="XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR" manipulator-mujoco:latest
+
+docker exec -it manipulator-mujoco /bin/bash -l
+
+```
 ## Inspiration
 
 This repository drew inspiration from the following repositories:

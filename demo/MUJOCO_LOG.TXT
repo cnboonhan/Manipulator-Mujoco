@@ -1,0 +1,15 @@
+Tue Dec 24 04:41:37 2024
+ERROR: could not create window
+
+Tue Dec 24 04:42:06 2024
+ERROR: could not create window
+
+Tue Dec 24 04:43:48 2024
+ERROR: could not create window
+
+Tue Dec 24 04:45:44 2024
+ERROR: could not create window
+
+Tue Dec 24 04:55:30 2024
+ERROR: could not initialize GLFW
+

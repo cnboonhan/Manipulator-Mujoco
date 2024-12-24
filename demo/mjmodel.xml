@@ -1,0 +1,147 @@
+<mujoco model="unnamed_model">
+  <compiler angle="radian"/>
+
+  <option integrator="implicitfast"/>
+
+  <default>
+    <default class="/"/>
+    <default class="ur5e/">
+      <default class="ur5e/ur5e">
+        <material shininess="0.25"/>
+        <joint range="-6.28319 6.28319" armature="0.1"/>
+        <site size="0.001 0.005 0.005" group="4" rgba="0.5 0.5 0.5 0.3"/>
+        <general ctrlrange="-6.2831 6.2831" forcerange="-150 150" biastype="affine" gainprm="2000" biasprm="0 -2000 -400"/>
+        <default class="ur5e/size3">
+          <default class="ur5e/size3_limited">
+            <joint range="-3.1415 3.1415"/>
+            <general ctrlrange="-3.1415 3.1415"/>
+          </default>
+        </default>
+        <default class="ur5e/size1">
+          <general forcerange="-28 28" gainprm="500" biasprm="0 -500 -100"/>
+        </default>
+        <default class="ur5e/visual">
+          <geom type="mesh" contype="0" conaffinity="0" group="2"/>
+        </default>
+        <default class="ur5e/collision">
+          <geom type="capsule" group="3"/>
+          <default class="ur5e/eef_collision">
+            <geom type="cylinder"/>
+          </default>
+        </default>
+      </default>
+    </default>
+    <default class="ur5e/unnamed_model/"/>
+  </default>
+
+  <asset>
+    <texture type="2d" name="//unnamed_texture_0" builtin="checker" rgb1="0.2 0.3 0.4" rgb2="0.3 0.4 0.5" width="300" height="300"/>
+    <texture type="skybox" name="ur5e/unnamed_model//unnamed_texture_0" builtin="gradient" rgb1="1 1 1" rgb2="0.6 0.8 1" width="256" height="1536"/>
+    <material name="grid" class="/" texture="//unnamed_texture_0" texrepeat="5 5" reflectance="0.2"/>
+    <material name="ur5e/black" class="ur5e/ur5e" rgba="0.033 0.033 0.033 1"/>
+    <material name="ur5e/jointgray" class="ur5e/ur5e" rgba="0.278 0.278 0.278 1"/>
+    <material name="ur5e/linkgray" class="ur5e/ur5e" rgba="0.82 0.82 0.82 1"/>
+    <material name="ur5e/urblue" class="ur5e/ur5e" rgba="0.49 0.678 0.8 1"/>
+    <mesh name="ur5e/base_0" class="ur5e/" file="base_0-d5328a99917358d9aa384f12743fe73698461d1c.obj"/>
+    <mesh name="ur5e/base_1" class="ur5e/" file="base_1-d1c667ae5f87b9c900fdeadad850205153846396.obj"/>
+    <mesh name="ur5e/shoulder_0" class="ur5e/" file="shoulder_0-89051b80580d45ef39cb220bf068742b01770552.obj"/>
+    <mesh name="ur5e/shoulder_1" class="ur5e/" file="shoulder_1-50ba15e82459989cf7f17cba7b1aafbca2781206.obj"/>
+    <mesh name="ur5e/shoulder_2" class="ur5e/" file="shoulder_2-29ad171bec79e2912abb81d250aaf5ff9a67bc60.obj"/>
+    <mesh name="ur5e/upperarm_0" class="ur5e/" file="upperarm_0-16bfdf8d1b19d35ef0adbc4cf29ab0c7edb62dcf.obj"/>
+    <mesh name="ur5e/upperarm_1" class="ur5e/" file="upperarm_1-c53724435bec35e1b608145457af767b038f4fd1.obj"/>
+    <mesh name="ur5e/upperarm_2" class="ur5e/" file="upperarm_2-199e0d0c1baa55a078742ed298800ff26d072c09.obj"/>
+    <mesh name="ur5e/upperarm_3" class="ur5e/" file="upperarm_3-62f2bba935d9ab94800a49bcb6ede7b0fa9dd071.obj"/>
+    <mesh name="ur5e/forearm_0" class="ur5e/" file="forearm_0-7994229075bdd0e4a5c860ca174278ee8eda8229.obj"/>
+    <mesh name="ur5e/forearm_1" class="ur5e/" file="forearm_1-c72848167eef89e0d9801ddd7da516e7e878776e.obj"/>
+    <mesh name="ur5e/forearm_2" class="ur5e/" file="forearm_2-3a33518f421ed893ff9b0d759af07b0e5900e78c.obj"/>
+    <mesh name="ur5e/forearm_3" class="ur5e/" file="forearm_3-54cad2556a94cdda04a7cef5c84554a7d9f3ab03.obj"/>
+    <mesh name="ur5e/wrist1_0" class="ur5e/" file="wrist1_0-6876ccb9d0084054268dd6aec007e5a61aea6c2d.obj"/>
+    <mesh name="ur5e/wrist1_1" class="ur5e/" file="wrist1_1-0f7e6640a9dfb98e58078997f5f82bd433879387.obj"/>
+    <mesh name="ur5e/wrist1_2" class="ur5e/" file="wrist1_2-3f6dcae8c736e2c42db3746db7f24ac4516aaca7.obj"/>
+    <mesh name="ur5e/wrist2_0" class="ur5e/" file="wrist2_0-fdb3f7bc360f8f37f6be6270c8b507291dc9b01c.obj"/>
+    <mesh name="ur5e/wrist2_1" class="ur5e/" file="wrist2_1-258ca475798c530d954723dc29f3d67086ead0d9.obj"/>
+    <mesh name="ur5e/wrist2_2" class="ur5e/" file="wrist2_2-c6734971531db7f2f09e746377aa9faccb69b192.obj"/>
+    <mesh name="ur5e/wrist3" class="ur5e/" file="wrist3-a1fffb4f599e121fb18be40e087b6fd7fb164e59.obj"/>
+  </asset>
+
+  <worldbody>
+    <geom name="//unnamed_geom_0" class="/" size="2 2 0.1" type="plane" material="grid"/>
+    <light name="//unnamed_light_0" class="/" pos="-2 -1 3" dir="0.666667 0.333333 -0.666667"/>
+    <light name="//unnamed_light_1" class="/" pos="2 -1 3" dir="-0.666667 0.333333 -0.666667"/>
+    <body name="mocap" mocap="true">
+      <geom name="//unnamed_geom_1" class="/" size="0.015 0.015 0.015" type="box" contype="0" conaffinity="0" rgba="1 0 0 0.2"/>
+    </body>
+    <body name="ur5e/" quat="0.707107 0 0 -0.707107">
+      <light name="ur5e/spotlight" class="ur5e/" target="ur5e/wrist_2_link" pos="0 -1 2" dir="0 0 -1" mode="targetbodycom"/>
+      <body name="ur5e/base" childclass="ur5e/ur5e" quat="0.707107 0 0 0.707107">
+        <inertial pos="0 0 0" mass="4" diaginertia="0.00443333 0.00443333 0.0072"/>
+        <geom name="ur5e//unnamed_geom_0" class="ur5e/visual" material="ur5e/black" mesh="ur5e/base_0"/>
+        <geom name="ur5e//unnamed_geom_1" class="ur5e/visual" material="ur5e/jointgray" mesh="ur5e/base_1"/>
+        <body name="ur5e/shoulder_link" pos="0 0 0.163">
+          <inertial pos="0 0 0" mass="3.7" diaginertia="0.0102675 0.0102675 0.00666"/>
+          <joint name="ur5e/shoulder_pan_joint" class="ur5e/size3" pos="0 0 0" axis="0 0 1"/>
+          <geom name="ur5e//unnamed_geom_2" class="ur5e/visual" material="ur5e/urblue" mesh="ur5e/shoulder_0"/>
+          <geom name="ur5e//unnamed_geom_3" class="ur5e/visual" material="ur5e/black" mesh="ur5e/shoulder_1"/>
+          <geom name="ur5e//unnamed_geom_4" class="ur5e/visual" material="ur5e/jointgray" mesh="ur5e/shoulder_2"/>
+          <geom name="ur5e//unnamed_geom_5" class="ur5e/collision" size="0.06 0.06" pos="0 0 -0.04"/>
+          <body name="ur5e/upper_arm_link" pos="0 0.138 0" quat="0.707107 0 0.707107 0">
+            <inertial pos="0 0 0.2125" mass="8.393" diaginertia="0.133886 0.133886 0.0151074"/>
+            <joint name="ur5e/shoulder_lift_joint" class="ur5e/size3" pos="0 0 0" axis="0 1 0"/>
+            <geom name="ur5e//unnamed_geom_6" class="ur5e/visual" material="ur5e/linkgray" mesh="ur5e/upperarm_0"/>
+            <geom name="ur5e//unnamed_geom_7" class="ur5e/visual" material="ur5e/black" mesh="ur5e/upperarm_1"/>
+            <geom name="ur5e//unnamed_geom_8" class="ur5e/visual" material="ur5e/jointgray" mesh="ur5e/upperarm_2"/>
+            <geom name="ur5e//unnamed_geom_9" class="ur5e/visual" material="ur5e/urblue" mesh="ur5e/upperarm_3"/>
+            <geom name="ur5e//unnamed_geom_10" class="ur5e/collision" size="0.06 0.06" pos="0 -0.04 0" quat="0.707107 0.707107 0 0"/>
+            <geom name="ur5e//unnamed_geom_11" class="ur5e/collision" size="0.05 0.2" pos="0 0 0.2"/>
+            <body name="ur5e/forearm_link" pos="0 -0.131 0.425">
+              <inertial pos="0 0 0.196" mass="2.275" diaginertia="0.0311796 0.0311796 0.004095"/>
+              <joint name="ur5e/elbow_joint" class="ur5e/size3_limited" pos="0 0 0" axis="0 1 0"/>
+              <geom name="ur5e//unnamed_geom_12" class="ur5e/visual" material="ur5e/urblue" mesh="ur5e/forearm_0"/>
+              <geom name="ur5e//unnamed_geom_13" class="ur5e/visual" material="ur5e/linkgray" mesh="ur5e/forearm_1"/>
+              <geom name="ur5e//unnamed_geom_14" class="ur5e/visual" material="ur5e/black" mesh="ur5e/forearm_2"/>
+              <geom name="ur5e//unnamed_geom_15" class="ur5e/visual" material="ur5e/jointgray" mesh="ur5e/forearm_3"/>
+              <geom name="ur5e//unnamed_geom_16" class="ur5e/collision" size="0.055 0.06" pos="0 0.08 0" quat="0.707107 0.707107 0 0"/>
+              <geom name="ur5e//unnamed_geom_17" class="ur5e/collision" size="0.038 0.19" pos="0 0 0.2"/>
+              <body name="ur5e/wrist_1_link" pos="0 0 0.392" quat="0.707107 0 0.707107 0">
+                <inertial pos="0 0.127 0" mass="1.219" diaginertia="0.0025599 0.0025599 0.0021942"/>
+                <joint name="ur5e/wrist_1_joint" class="ur5e/size1" pos="0 0 0" axis="0 1 0"/>
+                <geom name="ur5e//unnamed_geom_18" class="ur5e/visual" material="ur5e/black" mesh="ur5e/wrist1_0"/>
+                <geom name="ur5e//unnamed_geom_19" class="ur5e/visual" material="ur5e/urblue" mesh="ur5e/wrist1_1"/>
+                <geom name="ur5e//unnamed_geom_20" class="ur5e/visual" material="ur5e/jointgray" mesh="ur5e/wrist1_2"/>
+                <geom name="ur5e//unnamed_geom_21" class="ur5e/collision" size="0.04 0.07" pos="0 0.05 0" quat="0.707107 0.707107 0 0"/>
+                <body name="ur5e/wrist_2_link" pos="0 0.127 0">
+                  <inertial pos="0 0 0.1" mass="1.219" diaginertia="0.0025599 0.0025599 0.0021942"/>
+                  <joint name="ur5e/wrist_2_joint" class="ur5e/size1" pos="0 0 0" axis="0 0 1"/>
+                  <geom name="ur5e//unnamed_geom_22" class="ur5e/visual" material="ur5e/black" mesh="ur5e/wrist2_0"/>
+                  <geom name="ur5e//unnamed_geom_23" class="ur5e/visual" material="ur5e/urblue" mesh="ur5e/wrist2_1"/>
+                  <geom name="ur5e//unnamed_geom_24" class="ur5e/visual" material="ur5e/jointgray" mesh="ur5e/wrist2_2"/>
+                  <geom name="ur5e//unnamed_geom_25" class="ur5e/collision" size="0.04 0.06" pos="0 0 0.04"/>
+                  <geom name="ur5e//unnamed_geom_26" class="ur5e/collision" size="0.04 0.04" pos="0 0.02 0.1" quat="0.707107 0.707107 0 0"/>
+                  <body name="ur5e/wrist_3_link" pos="0 0 0.1">
+                    <inertial pos="0 0.0771683 0" quat="0.707107 0 0 0.707107" mass="0.1889" diaginertia="0.000132134 9.90863e-05 9.90863e-05"/>
+                    <joint name="ur5e/wrist_3_joint" class="ur5e/size1" pos="0 0 0" axis="0 1 0"/>
+                    <geom name="ur5e//unnamed_geom_27" class="ur5e/visual" material="ur5e/linkgray" mesh="ur5e/wrist3"/>
+                    <geom name="ur5e//unnamed_geom_28" class="ur5e/eef_collision" size="0.04 0.02" pos="0 0.08 0" quat="0.707107 0.707107 0 0"/>
+                    <body name="ur5e/tool0_link" pos="0 0.1 0" quat="-0.707107 0.707107 0 0">
+                      <site name="ur5e/attachment_site" pos="0 0 0"/>
+                      <site name="ur5e/eef_site" pos="0 0 0.05" quat="0 0.707107 -0.707107 0"/>
+                      <body name="ur5e/unnamed_model/">
+                        <body name="ur5e/unnamed_model//unnamed_body_0" pos="0 0 0.15">
+                          <geom name="ur5e/unnamed_model//unnamed_geom_0" class="ur5e/unnamed_model/" size="0.01 0.15" type="cylinder" rgba="0 0 1 1"/>
+                        </body>
+                      </body>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+    <body name="golf_ball_body" pos="0.5 0 0.049">
+      <joint name="//unnamed_joint_0" class="/" type="free" limited="false" actuatorfrclimited="false"/>
+      <geom name="golf_ball" class="/" size="0.024" pos="0 0 0.049" friction="0.4 0.005 1e-05" mass="1.2" rgba="0.247 0.772 0.76 1"/>
+    </body>
+  </worldbody>
+</mujoco>
